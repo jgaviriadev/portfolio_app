@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'screens/screens.dart';
 
 void main() {
@@ -15,7 +16,10 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primaryColor: const Color(0xFFD0EDF2),
         backgroundColor: Colors.amber,
-        scaffoldBackgroundColor: const Color(0xFFD0EDF2)
+        scaffoldBackgroundColor: const Color(0xFFD0EDF2),
+        textTheme: GoogleFonts.interTextTheme(
+          Theme.of(context).textTheme
+        )
       ),
     );
   }

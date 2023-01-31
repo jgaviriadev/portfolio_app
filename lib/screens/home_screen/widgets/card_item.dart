@@ -30,7 +30,12 @@ class CardITem extends StatelessWidget {
             size: 30,
           ),
           const SizedBox(height: 8,),
-          Text(descItem)
+          Text(
+            descItem,
+            style: const TextStyle(
+              fontWeight: FontWeight.bold
+            ),
+          )
         ],
       ), 
     );

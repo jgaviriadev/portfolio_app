@@ -26,7 +26,7 @@ class HomeScreen extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const SizedBox(height: 12,),
+                    const SizedBox(height: 8,),
                     const Text(
                       'Jhonatan Gaviria',
                       style: TextStyle(
