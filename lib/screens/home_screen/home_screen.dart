@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio_app/widgets/custom_app_bar.dart';
 
 import 'widgets/card_item.dart';
 
@@ -8,14 +9,7 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
-      appBar: AppBar(
-        leading: const Icon(
-          Icons.density_medium_rounded,
-          color: Colors.black,
-        ),
-        elevation: 0, 
-        backgroundColor: const Color(0xFFD0EDF2),
-      ),
+      appBar: CustomAppBar(),
       body: Column(
         children: [
           Expanded(
@@ -115,7 +109,7 @@ class HomeScreen extends StatelessWidget {
                       SizedBox(width: 12,),
                       CardITem(
                         descItem: 'Experiencia',
-                        iconItem: Icons.cases_rounded,
+                        iconItem: Icons.work,
                       ),
                       SizedBox(width: 12,),
                       CardITem(
