@@ -16,7 +16,7 @@ class HomeScreen extends StatelessWidget {
             child: SizedBox(
               width: double.infinity,
               child: Padding(
-                padding: const EdgeInsets.only(right: 12, left: 12),
+                padding: const EdgeInsets.only(right: 20, left: 20),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -61,7 +61,7 @@ class HomeScreen extends StatelessWidget {
               children: [
                 const SizedBox(height: 12,),
                 Padding(
-                  padding: const EdgeInsets.only(right: 12, left: 12, top: 4),
+                  padding: const EdgeInsets.only(right: 20, left: 20, top: 4),
                   child: Row(
                     children: [
                       Expanded(
@@ -82,7 +82,7 @@ class HomeScreen extends StatelessWidget {
                           ],
                         ),
                       ),
-                      const SizedBox(width: 12,),
+                      const SizedBox(width: 20,),
                       ElevatedButton(
                         onPressed: () {},
                         style: ElevatedButton.styleFrom(
@@ -101,27 +101,27 @@ class HomeScreen extends StatelessWidget {
                   scrollDirection: Axis.horizontal,
                   child: Row(
                     children: const [
-                      SizedBox(width: 12,),
+                      SizedBox(width: 20,),
                       CardITem(
                         descItem: 'Acerca de mí',
                         iconItem: Icons.badge_rounded,
                       ),
-                      SizedBox(width: 12,),
+                      SizedBox(width: 20,),
                       CardITem(
                         descItem: 'Experiencia',
                         iconItem: Icons.work,
                       ),
-                      SizedBox(width: 12,),
+                      SizedBox(width: 20,),
                       CardITem(
                         descItem: 'Proyectos',
                         iconItem: Icons.code_rounded,
                       ),
-                      SizedBox(width: 12,),
+                      SizedBox(width: 20,),
                       CardITem(
                         descItem: 'Estudios',
                         iconItem: Icons.school,
                       ),
-                      SizedBox(width: 12,),
+                      SizedBox(width: 20,),
                     ],
                   ),
                 ),

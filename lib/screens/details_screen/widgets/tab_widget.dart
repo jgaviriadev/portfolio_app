@@ -22,6 +22,7 @@ class TabWidget extends StatelessWidget {
         GestureDetector(
           onTap: () {
             context.read<PortfolioAppProvider>().changeTabSelected(tab);
+            context.read<PortfolioAppProvider>().changePageController(tab.index);
           },
           child: Selector<PortfolioAppProvider, TabSelected>(
             selector: (_, v) => v.tabSelected,

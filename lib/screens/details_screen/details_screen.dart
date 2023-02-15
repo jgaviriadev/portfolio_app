@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:portfolio_app/providers/portfolio_provider.dart';
 import 'package:portfolio_app/widgets/widgets.dart';
 import 'package:provider/provider.dart';
+import 'widgets/experience_page.dart';
 import 'widgets/tab_widget.dart';
 
 
@@ -17,9 +18,9 @@ class DetailsScreen extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const Padding(
-            padding: EdgeInsets.only(left: 12.0),
+            padding: EdgeInsets.only(left: 20.0),
             child: Text(
-              'About me',
+              'Acerca de mí',
               style: TextStyle(
                 fontWeight: FontWeight.bold,
                 fontSize: 20
@@ -28,7 +29,7 @@ class DetailsScreen extends StatelessWidget {
           ),
           const SizedBox(height: 12),
           Padding(
-            padding: const EdgeInsets.only(left: 12, right: 12),
+            padding: const EdgeInsets.only(left: 20, right: 20),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: const [
@@ -37,19 +38,16 @@ class DetailsScreen extends StatelessWidget {
                   tab: TabSelected.hola ,
                   icon: Icons.person,
                 ),
-                //SizedBox(width: 30),
                 TabWidget(
                   text: 'Estudios',
                   tab: TabSelected.estudios,
                   icon: Icons.school,
                 ),
-                //SizedBox(width: 30),
                 TabWidget(
                   text: 'Experiencia',
                   tab: TabSelected.exp,
                   icon: Icons.work,
                 ),
-                //SizedBox(width: 30),
                 TabWidget(
                   text: 'Proyectos',
                   tab: TabSelected.proyectos,
@@ -70,70 +68,28 @@ class DetailsScreen extends StatelessWidget {
                   topRight: Radius.circular(40.0)
                 )
               ), 
-              child: Selector<PortfolioAppProvider, TabSelected>(
-                selector: (_, v) => v.tabSelected,
-                builder: (BuildContext context, TabSelected tabSelected, _) {
-                  switch (tabSelected) {
-                    case TabSelected.hola:
-                      return const Text('Hola');
-
-                    case TabSelected.estudios:
-                      return const Text('Estudios');
-
-                    case TabSelected.exp:
-                      return Padding(
-                        padding: const EdgeInsets.all(12.0),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            const SizedBox(height: 12),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: const [
-                                Text(
-                                  'MYADTECH',
-                                  style: TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                    //fontSize: 16
-                                  ),
-                                ),
-                                Text(
-                                  'México',
-                                  style: TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                )
-                              ],
-                            ),
-                            const Text('Oct 2022 - Dic 2022'),
-                            const SizedBox(height: 12),
-                            const Text(
-                              'Desarrollador Móvil',
-                              style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                fontSize: 16
-                              ),
-                            ),
-                            const SizedBox(height: 4),
-                            const Text(
-                              'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s',
-                              textAlign: TextAlign.justify,
-                            ),
-                            const SizedBox(height: 8),
-                            const Divider(
-                              thickness: 1,
-                              color: Colors.black,
-                            ),
-                          ],
-                        ),
-                      );
-
-                    case TabSelected.proyectos:
-                      return const Text('Proyectos');
-
-                    default:
-                      return const Text('default');
-                  }
+              child: Selector<PortfolioAppProvider, PageController>(
+                selector: (_, v) => v.pageController,
+                shouldRebuild: (previous, next) => previous != next,
+                builder: (BuildContext context, PageController pageController, _) {
+                  //print(tabSelected.index);
+                  return PageView(
+                    controller: pageController,
+                    scrollDirection: Axis.horizontal,
+                    children:  const [
+                      Center(
+                        child: Text('Hola'),
+                      ),
+                      Center(
+                        child: Text('Estudios'),
+                      ),
+                      ExperiencePage(),
+                      Center(
+                        child: Text('Pro'),
+                      ),
+                    ],
+                    onPageChanged: (value) => context.read<PortfolioAppProvider>().changeTabSelected(TabSelected.values[value]),
+                  );
                 }
               ),
             )
@@ -143,3 +99,4 @@ class DetailsScreen extends StatelessWidget {
     );
   }
 }
+
