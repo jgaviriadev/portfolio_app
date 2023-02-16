@@ -14,15 +14,15 @@ class ExperiencePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(20.0),
-      child: Selector<PortfolioAppProvider, List <Experience>?>(
-        selector: (_, v) => v.user.experience,
-        builder: (BuildContext context, List <Experience>? experience, _) {
-          if(experience!=null){
+      child: Selector<PortfolioAppProvider, User?>(
+        selector: (_, v) => v.user,
+        builder: (BuildContext context, User? user, _) {
+          if(user!=null){
             return ListView.builder(
-              itemCount: experience.length,
+              itemCount: user.experience!.length,
               itemBuilder: (context, index) {
                 return JobWidget(
-                  experience: experience[index],
+                  experience: user.experience![index],
                 );
               },
             );

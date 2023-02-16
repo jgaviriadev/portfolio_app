@@ -7,15 +7,13 @@ enum TabSelected { hola, estudios, exp, proyectos, }
 class PortfolioAppProvider extends ChangeNotifier{
 
   PortfolioAppProvider(){
-    //getPerson();
     getJsonData();
   }
 
-  
   TabSelected _tabSelected = TabSelected.hola;
-  final PageController _pageController = PageController(initialPage: 0);
+  PageController _pageController = PageController(initialPage: 0);
   final String _url = 'https://raw.githubusercontent.com/jgaviriadev/jgaviriadev/main/data.json';
-  late User user ;
+  User? user ;
 
   TabSelected get tabSelected => _tabSelected;
   PageController get pageController => _pageController;
@@ -24,12 +22,17 @@ class PortfolioAppProvider extends ChangeNotifier{
     _tabSelected = value;
     notifyListeners();
   }
-
+  void changePageAndTab (TabSelected value){
+    _tabSelected = value;
+    _pageController = PageController(initialPage: value.index);
+    notifyListeners();
+  }
   void changePageController (index){
     _pageController.jumpToPage(index);
     //_pageController.animateToPage(index, duration: Duration(microseconds: 1000), curve: Curves.easeIn);
     notifyListeners();
   }
+
 
   Future getJsonData() async{
     final response = await http.get(Uri.parse(_url));
@@ -38,6 +41,7 @@ class PortfolioAppProvider extends ChangeNotifier{
     } else {
       //return "error";
     }
+    notifyListeners();
   }
 
 }

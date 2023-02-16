@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:portfolio_app/providers/portfolio_provider.dart';
 import 'package:portfolio_app/widgets/custom_app_bar.dart';
+import 'package:provider/provider.dart';
 
 import 'widgets/card_item.dart';
 
@@ -100,28 +103,52 @@ class HomeScreen extends StatelessWidget {
                 SingleChildScrollView(
                   scrollDirection: Axis.horizontal,
                   child: Row(
-                    children: const [
-                      SizedBox(width: 20,),
-                      CardITem(
-                        descItem: 'Acerca de mí',
-                        iconItem: Icons.badge_rounded,
+                    children: [
+                      const SizedBox(width: 20,),
+                      GestureDetector(
+                        onTap: () {
+                          context.read<PortfolioAppProvider>().changePageAndTab(TabSelected.hola);
+                          context.go('/details');
+                        },
+                        child: const CardITem(
+                          descItem: 'Acerca de mí',
+                          iconItem: Icons.badge_rounded,
+                        ),
                       ),
-                      SizedBox(width: 20,),
-                      CardITem(
-                        descItem: 'Experiencia',
-                        iconItem: Icons.work,
+                      const SizedBox(width: 20,),
+                      GestureDetector(
+                        onTap: () {
+                          context.read<PortfolioAppProvider>().changePageAndTab(TabSelected.exp);
+                          context.go('/details');
+                        },
+                        child: const CardITem(
+                          descItem: 'Experiencia',
+                          iconItem: Icons.work,
+                        ),
                       ),
-                      SizedBox(width: 20,),
-                      CardITem(
-                        descItem: 'Proyectos',
-                        iconItem: Icons.code_rounded,
+                      const SizedBox(width: 20,),
+                      GestureDetector(
+                        onTap: () {
+                          context.read<PortfolioAppProvider>().changePageAndTab(TabSelected.proyectos);
+                          context.go('/details');
+                        },
+                        child: const CardITem(
+                          descItem: 'Proyectos',
+                          iconItem: Icons.code_rounded,
+                        ),
                       ),
-                      SizedBox(width: 20,),
-                      CardITem(
-                        descItem: 'Estudios',
-                        iconItem: Icons.school,
+                      const SizedBox(width: 20,),
+                      GestureDetector(
+                        onTap: () {
+                          context.read<PortfolioAppProvider>().changePageAndTab(TabSelected.estudios);
+                          context.go('/details');
+                        },
+                        child: const CardITem(
+                          descItem: 'Estudios',
+                          iconItem: Icons.school,
+                        ),
                       ),
-                      SizedBox(width: 20,),
+                      const SizedBox(width: 20,),
                     ],
                   ),
                 ),
