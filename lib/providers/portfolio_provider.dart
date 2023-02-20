@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:portfolio_app/models/user.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 enum TabSelected { hola, estudios, exp, proyectos, }
 
@@ -13,6 +14,7 @@ class PortfolioAppProvider extends ChangeNotifier{
   TabSelected _tabSelected = TabSelected.hola;
   PageController _pageController = PageController(initialPage: 0);
   final String _url = 'https://raw.githubusercontent.com/jgaviriadev/jgaviriadev/main/data.json';
+  final Uri _urlWhatsapp = Uri.parse('whatsapp://send?phone=573142196320');
   User? user ;
 
   TabSelected get tabSelected => _tabSelected;
@@ -42,6 +44,15 @@ class PortfolioAppProvider extends ChangeNotifier{
       //return "error";
     }
     notifyListeners();
+  }
+
+  Future<void> launchChat(BuildContext context) async {
+    if (await canLaunchUrl(_urlWhatsapp)) {
+      await launchUrl(_urlWhatsapp);
+    } else {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text("Whatsapp no está instalado")));
+    }
   }
 
 }

@@ -87,7 +87,9 @@ class HomeScreen extends StatelessWidget {
                       ),
                       const SizedBox(width: 20,),
                       ElevatedButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          context.read<PortfolioAppProvider>().launchChat(context);
+                        },
                         style: ElevatedButton.styleFrom(
                           backgroundColor: const Color(0xFF00C0E4),
                           shape: RoundedRectangleBorder(

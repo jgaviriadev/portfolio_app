@@ -27,7 +27,9 @@ class ExperiencePage extends StatelessWidget {
               },
             );
           } else {
-            return Container();
+            return const Center(
+              child: CircularProgressIndicator(),
+            );
           }
 
         }
