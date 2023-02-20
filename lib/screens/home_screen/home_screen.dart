@@ -110,7 +110,7 @@ class HomeScreen extends StatelessWidget {
                       GestureDetector(
                         onTap: () {
                           context.read<PortfolioAppProvider>().changePageAndTab(TabSelected.hola);
-                          context.go('/details');
+                          context.push('/details');
                         },
                         child: const CardITem(
                           descItem: 'Acerca de mí',
@@ -121,7 +121,7 @@ class HomeScreen extends StatelessWidget {
                       GestureDetector(
                         onTap: () {
                           context.read<PortfolioAppProvider>().changePageAndTab(TabSelected.exp);
-                          context.go('/details');
+                          context.push('/details');
                         },
                         child: const CardITem(
                           descItem: 'Experiencia',
@@ -132,7 +132,7 @@ class HomeScreen extends StatelessWidget {
                       GestureDetector(
                         onTap: () {
                           context.read<PortfolioAppProvider>().changePageAndTab(TabSelected.proyectos);
-                          context.go('/details');
+                          context.push('/details');
                         },
                         child: const CardITem(
                           descItem: 'Proyectos',
@@ -143,7 +143,7 @@ class HomeScreen extends StatelessWidget {
                       GestureDetector(
                         onTap: () {
                           context.read<PortfolioAppProvider>().changePageAndTab(TabSelected.estudios);
-                          context.go('/details');
+                          context.push('/details');
                         },
                         child: const CardITem(
                           descItem: 'Estudios',
