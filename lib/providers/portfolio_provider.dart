@@ -7,10 +7,6 @@ enum TabSelected { hola, estudios, exp, proyectos, }
 
 class PortfolioAppProvider extends ChangeNotifier{
 
-  PortfolioAppProvider(){
-    getJsonData();
-  }
-
   TabSelected _tabSelected = TabSelected.hola;
   PageController _pageController = PageController(initialPage: 0);
   final String _url = 'https://raw.githubusercontent.com/jgaviriadev/jgaviriadev/main/data.json';
@@ -40,6 +36,7 @@ class PortfolioAppProvider extends ChangeNotifier{
     final response = await http.get(Uri.parse(_url));
     if(response.statusCode == 200){
       user = User.fromJson(response.body);
+      print('datos listos');
     } else {
       //return "error";
     }
