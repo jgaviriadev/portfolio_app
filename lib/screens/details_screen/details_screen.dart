@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio_app/providers/portfolio_provider.dart';
+import 'package:portfolio_app/screens/details_screen/widgets/about_page.dart';
 import 'package:portfolio_app/widgets/widgets.dart';
 import 'package:provider/provider.dart';
 import 'widgets/experience_page.dart';
@@ -77,9 +78,7 @@ class DetailsScreen extends StatelessWidget {
                     controller: pageController,
                     scrollDirection: Axis.horizontal,
                     children:  const [
-                      Center(
-                        child: Text('Hola'),
-                      ),
+                      AboutPage(),
                       Center(
                         child: Text('Estudios'),
                       ),
