@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio_app/providers/portfolio_provider.dart';
 import 'package:portfolio_app/screens/details_screen/widgets/about_page.dart';
+import 'package:portfolio_app/screens/details_screen/widgets/projects_page.dart';
 import 'package:portfolio_app/widgets/widgets.dart';
 import 'package:provider/provider.dart';
 import 'widgets/experience_page.dart';
@@ -83,9 +84,7 @@ class DetailsScreen extends StatelessWidget {
                         child: Text('Estudios'),
                       ),
                       ExperiencePage(),
-                      Center(
-                        child: Text('Pro'),
-                      ),
+                      ProjectsPage()
                     ],
                     onPageChanged: (value) => context.read<PortfolioAppProvider>().changeTabSelected(TabSelected.values[value]),
                   );
