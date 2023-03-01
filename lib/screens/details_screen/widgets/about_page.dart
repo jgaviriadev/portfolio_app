@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'skill_card.dart';
+
 class AboutPage extends StatelessWidget {
   const AboutPage({super.key});
 
@@ -12,6 +14,7 @@ class AboutPage extends StatelessWidget {
           Row(
             children: [
               const CircleAvatar(
+                backgroundColor: Color(0xFFD0EDF2),
                 backgroundImage: AssetImage('assets/logo.png'),
                 //backgroundColor: Colors.green,
                 maxRadius: 55,
@@ -70,51 +73,11 @@ class AboutPage extends StatelessWidget {
               spacing: 20,
               runSpacing: 20,
               alignment: WrapAlignment.center,
-              children: [
-                Tooltip(
-                  message: 'Facebook',
-                  child: Image.asset(
-                    'assets/logoLinkedin.png',
-                    height: 35,
-                    width: 35,
-                  ),
-                ),
-                Image.asset(
-                  'assets/logoLinkedin.png',
-                  height: 35,
-                  width: 35,
-                ),
-                Image.asset(
-                  'assets/logoLinkedin.png',
-                  height: 35,
-                  width: 35,
-                ),
-                Image.asset(
-                  'assets/logoLinkedin.png',
-                  height: 35,
-                  width: 35,
-                ),
-                Image.asset(
-                  'assets/logoLinkedin.png',
-                  height: 35,
-                  width: 35,
-                ),
-                Image.asset(
-                  'assets/logoLinkedin.png',
-                  height: 35,
-                  width: 35,
-                ),
-                Image.asset(
-                  'assets/logoLinkedin.png',
-                  height: 35,
-                  width: 35,
-                ),
-                Image.asset(
-                  'assets/logoLinkedin.png',
-                  height: 35,
-                  width: 35,
-                ),
-          
+              children: const [
+                SkillCard(
+                  bg: Colors.green,
+                  colorText: Colors.black,
+                ),    
               ],
             ),
           ),
