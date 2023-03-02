@@ -8,6 +8,7 @@ class User {
     this.age,
     this.img,
     this.experience,
+    this.skill
   });
 
   String? name;
@@ -16,6 +17,7 @@ class User {
   int? age;
   String? img;
   List<Experience>? experience;
+  List<Skill>? skill;
 
   factory User.fromJson(String str) => User.fromMap(json.decode(str));
 
@@ -26,6 +28,7 @@ class User {
     age: json["age"],
     img: json["img"],
     experience: List<Experience>.from(json["experience"].map((x) => Experience.fromJson(x))),
+    skill: List<Skill>.from(json["skill"].map((x) => Skill.fromJson(x))),
   );
 }
 
@@ -64,4 +67,27 @@ class Experience {
     "job_title": jobTitle,
     "desc": desc,
   };
+}
+
+class Skill {
+
+  Skill({
+    required this.name,
+    required this.img
+  });
+
+  String name;
+  String img;
+
+  factory Skill.fromJson(Map<String, dynamic> json) => Skill(
+    name: json["name"],
+    img: json["img"],
+  );
+  
+  Map<String, dynamic> toJson() => {
+    "name": name,
+    "img": img,
+  };
+
+
 }
