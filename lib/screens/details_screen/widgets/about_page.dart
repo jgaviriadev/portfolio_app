@@ -67,7 +67,7 @@ class AboutPage extends StatelessWidget {
             'Estas son algunas de las tecnologías que manejo actualmente:',
             textAlign: TextAlign.justify,
           ),
-          const SizedBox(height: 20,),
+          const SizedBox(height: 10,),
           Expanded(
             child: Wrap(
               spacing: 20,
@@ -75,9 +75,13 @@ class AboutPage extends StatelessWidget {
               alignment: WrapAlignment.center,
               children: const [
                 SkillCard(
-                  bg: Colors.green,
-                  colorText: Colors.black,
-                ),    
+                  name: 'Flutter',
+                  url: 'https://miro.medium.com/max/320/0*ObJbOfJnx4QIPUq9.png',
+                ),
+                SkillCard(
+                  name: 'Dart',
+                  url: 'https://miro.medium.com/max/320/0*ObJbOfJnx4QIPUq9.png',
+                ),     
               ],
             ),
           ),
