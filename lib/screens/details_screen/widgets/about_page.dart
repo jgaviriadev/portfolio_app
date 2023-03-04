@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio_app/models/user.dart';
+import 'package:portfolio_app/providers/portfolio_provider.dart';
+import 'package:provider/provider.dart';
 
 import 'skill_card.dart';
 
@@ -16,10 +19,8 @@ class AboutPage extends StatelessWidget {
               const CircleAvatar(
                 backgroundColor: Color(0xFFD0EDF2),
                 backgroundImage: AssetImage('assets/logo.png'),
-                //backgroundColor: Colors.green,
                 maxRadius: 55,
               ),
-              //onst SizedBox(width: 20,),
               const SizedBox(
                 height: 100,
                 width: 30,
@@ -54,7 +55,6 @@ class AboutPage extends StatelessWidget {
                   ],
                 ),
               ),
-              
             ],
           ),
           const SizedBox(height: 20,),
@@ -69,20 +69,24 @@ class AboutPage extends StatelessWidget {
           ),
           const SizedBox(height: 10,),
           Expanded(
-            child: Wrap(
-              spacing: 20,
-              runSpacing: 20,
-              alignment: WrapAlignment.center,
-              children: const [
-                SkillCard(
-                  name: 'Flutter',
-                  url: 'https://miro.medium.com/max/320/0*ObJbOfJnx4QIPUq9.png',
-                ),
-                SkillCard(
-                  name: 'Dart',
-                  url: 'https://miro.medium.com/max/320/0*ObJbOfJnx4QIPUq9.png',
-                ),     
-              ],
+            child: Selector<PortfolioAppProvider, User?>(
+              selector: (p0, p1) => p1.user,
+              builder: (BuildContext context, User? user, _) {
+                if(user!=null){
+                return Wrap(
+                  spacing: 20,
+                  runSpacing: 10,
+                  alignment: WrapAlignment.center,
+                  children: user.skill!.map((e) => 
+                    SkillCard(
+                      name: e.name,
+                      url: e.img,
+                    )).toList(),
+                );
+                } else {
+                  return Container();
+                }
+              }, 
             ),
           ),
           

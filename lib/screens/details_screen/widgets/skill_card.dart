@@ -28,7 +28,7 @@ class SkillCard extends StatelessWidget {
               placeholder: (context, url) => const CircularProgressIndicator(),
               errorWidget: (context, url, error) => const Icon(Icons.error, color: Colors.amber,),
             ),
-            const SizedBox(width: 4,),
+            const SizedBox(width: 8,),
             Text(
               name,
               style: const TextStyle(
