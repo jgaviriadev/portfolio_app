@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio_app/providers/portfolio_provider.dart';
+import 'package:portfolio_app/screens/details_screen/widgets/experience_card.dart';
 import 'package:provider/provider.dart';
 
 import '../../../models/user.dart';
-import 'job_widget.dart';
+
 
 class ExperiencePage extends StatelessWidget {
   const ExperiencePage({
@@ -21,7 +22,7 @@ class ExperiencePage extends StatelessWidget {
             return ListView.builder(
               itemCount: user.experience!.length,
               itemBuilder: (context, index) {
-                return JobWidget(
+                return ExperienceCard(
                   experience: user.experience![index],
                 );
               },
