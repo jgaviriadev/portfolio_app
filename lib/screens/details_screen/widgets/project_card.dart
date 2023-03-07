@@ -1,12 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:card_swiper/card_swiper.dart';
+import 'package:portfolio_app/models/user.dart';
 
 class ProjectCard extends StatelessWidget {
   const ProjectCard({
-    Key? key,
+    Key? key, 
+    required this.experience,
   }) : super(key: key);
 
+  final Experience experience;
   @override
   Widget build(BuildContext context) {
+    final Size size = MediaQuery.of(context).size;
     return Card(
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(20),
@@ -25,22 +30,63 @@ class ProjectCard extends StatelessWidget {
         child: Theme(
           data: Theme.of(context).copyWith(dividerColor: Colors.transparent),
           child: ExpansionTile(
+            //childrenPadding: const EdgeInsets.all(18),
             expandedCrossAxisAlignment: CrossAxisAlignment.start,
-            leading: const Icon(Icons.abc),
+            leading: const SizedBox(
+              height: double.infinity,
+              child: Icon(
+                Icons.phone_android, 
+                size: 20, 
+                color: Colors.black,
+              ),
+            ),
             title: const Text(
               'Operaciones con conjuntos',
               style: TextStyle(
+                height: 1,
                 fontWeight: FontWeight.bold
               ),
             ),
             subtitle: const Text('Aplicativo  móvil'), 
-            children: const [
-              Text(
-                'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout',
-                textAlign: TextAlign.justify,
+            children:  [
+              const Padding(
+                padding: EdgeInsets.only(left: 18, right: 18),
+                child: Text(
+                  'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout',
+                  textAlign: TextAlign.justify,
+                ),
               ),
-              SizedBox(height: 8,),
-              Text('Tecnologias usadas: Flutter, Dart')
+              const SizedBox(height: 8,),
+              const Padding(
+                padding: EdgeInsets.only(left: 18, right: 18),
+                child: Text('Tecnologias usadas: Flutter, Dart'),
+              ),
+              const SizedBox(height: 8,),
+              SizedBox(
+                height: 200,
+                child: Swiper(
+                  viewportFraction: 0.8,
+                  scale: 0.9,
+                  autoplay: true,
+                  itemCount: 3,
+                  //layout: SwiperLayout.STACK,
+                  itemBuilder: (_, int index) {
+                    return ClipRRect(
+                      borderRadius: BorderRadius.circular(20),
+                      child: FadeInImage(
+                        placeholder: const AssetImage('assets/noImage.png'), 
+                        image: NetworkImage('https://via.placeholder.com/288x188'), 
+                        fit: BoxFit.cover,
+                      ),
+                    );
+                  },
+                ),
+              ),
+              const SizedBox(height: 8,),
+              // const Padding(
+              //   padding: EdgeInsets.only(left: 18, right: 18),
+              //   child: Text('Tecnologias usadas: Flutter, Dart'),
+              // )
             ],
           ),
         ),

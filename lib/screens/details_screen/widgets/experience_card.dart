@@ -29,7 +29,6 @@ class ExperienceCard extends StatelessWidget {
           data: Theme.of(context).copyWith(dividerColor: Colors.transparent),
           child: ExpansionTile(
             childrenPadding: const EdgeInsets.all(16),
-            //tilePadding: EdgeInsets.symmetric(vertical: 0.0),
             expandedCrossAxisAlignment: CrossAxisAlignment.start,
             title: Text(
               experience.jobTitle,
