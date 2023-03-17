@@ -10,61 +10,99 @@ class ExperienceCard extends StatelessWidget {
   final Experience experience;
   @override
   Widget build(BuildContext context) {
-    return Card(
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(20),
-      ),
-      color: const Color(0xFFD0EDF2),
-      clipBehavior: Clip.antiAlias,
-      child: Container(
-        decoration: const BoxDecoration(
-          border: Border(
-            bottom: BorderSide(
-              color: Color(0xFF00C0E4), 
-              width: 10
-            )
-          )
+    return Padding(
+      padding: const EdgeInsets.only(top:20),
+      child: Card(
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(20),
         ),
-        child: Theme(
-          data: Theme.of(context).copyWith(dividerColor: Colors.transparent),
-          child: ExpansionTile(
-            childrenPadding: const EdgeInsets.all(16),
-            expandedCrossAxisAlignment: CrossAxisAlignment.start,
-            title: Text(
-              experience.jobTitle,
-              style: const TextStyle(
-                fontWeight: FontWeight.bold
-              ),
-            ),
-            subtitle: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                Row(
-                  children: [
-                    Expanded(
-                      child: Text(experience.company)
-                    ),
-                    Text(experience.country),
-                  ],
+        color: const Color(0xFFD0EDF2),
+        clipBehavior: Clip.antiAlias,
+        child: Container(
+          decoration: const BoxDecoration(
+            border: Border(
+              bottom: BorderSide(
+                color: Color(0xFF00C0E4), 
+                width: 10
+              )
+            )
+          ),
+          child: Theme(
+            data: Theme.of(context).copyWith(dividerColor: Colors.transparent),
+            child: ExpansionTile(
+              tilePadding: const EdgeInsets.symmetric(vertical: 10, horizontal: 16),
+              childrenPadding: const EdgeInsets.all(16),
+              expandedCrossAxisAlignment: CrossAxisAlignment.start,
+              title: Text(
+                experience.jobTitle,
+                style: const TextStyle(
+                  fontWeight: FontWeight.bold
                 ),
-                Text(
-                  '${experience.beginning} - ${experience.finished}',
-                  style: const TextStyle(
-                    fontSize: 10,
+              ),
+              subtitle: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Row(
+                    children: [
+                      Expanded(
+                        child: Row(
+                          children: [
+                            const Icon(
+                              Icons.business,
+                              size: 14,
+                              //color: Colors.black,
+                            ),
+                            const SizedBox(width: 4,),
+                            Text(experience.company),
+                          ],
+                        )
+                      ),
+                      Row(
+                        children: const [
+                          Icon(
+                            Icons.location_pin,
+                            size: 14,
+                          ),
+                          SizedBox(width: 4,),
+                          Text(
+                            'REMOTO',
+                            style: TextStyle(
+                              fontSize: 10,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
                   ),
+                  Row(
+                    children: [
+                      const Icon(
+                        Icons.calendar_month,
+                        size: 14,
+                        //color: Colors.black,
+                      ),
+                      const SizedBox(width: 4,),
+                      Text(
+                        '${experience.beginning} - ${experience.finished}',
+                        style: const TextStyle(
+                          //fontSize: 10,
+                        ),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 4,)
+                ],
+              ), 
+              children: [
+                Text(
+                  experience.desc,
+                  textAlign: TextAlign.justify,
                 ),
-                const SizedBox(height: 4,)
+                const SizedBox(height: 8,),
+                const Text('Tecnologias usadas: Flutter, Dart')
               ],
-            ), 
-            children: [
-              Text(
-                experience.desc,
-                textAlign: TextAlign.justify,
-              ),
-              const SizedBox(height: 8,),
-              const Text('Tecnologias usadas: Flutter, Dart')
-            ],
+            ),
           ),
         ),
       ),

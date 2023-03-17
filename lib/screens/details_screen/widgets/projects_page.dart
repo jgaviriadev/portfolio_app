@@ -10,7 +10,7 @@ class ProjectsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(20.0),
+      padding: const EdgeInsets.only(left:20.0, right: 20, top: 20),
       child: Selector<PortfolioAppProvider, User?>(
         selector: (_, v) => v.user,
         builder: (context, User? user, _) {
