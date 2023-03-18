@@ -44,6 +44,8 @@ dependencies:
   animate_do: ^3.0.2
   cached_network_image: ^3.2.3
   card_swiper: ^2.0.4
+  dependencies:
+  timelines: ^0.1.0
 
 dev_dependencies:
   flutter_test:
