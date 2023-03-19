@@ -21,22 +21,33 @@ class CardITem extends StatelessWidget {
           Radius.circular(20)
         )
       ),
-      child: Column(
-        //crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisAlignment: MainAxisAlignment.center,
-        children:[
-          Icon(
-            iconItem,
-            size: 30,
-          ),
-          const SizedBox(height: 8,),
-          Text(
-            descItem,
-            style: const TextStyle(
-              fontWeight: FontWeight.bold
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Column(
+          //crossAxisAlignment: CrossAxisAlignment.start,
+          //mainAxisAlignment: MainAxisAlignment.end,
+          children:[
+            Expanded(
+              child: Align(
+                alignment: Alignment.bottomCenter,
+                child: Icon(
+                  iconItem,
+                  size: 30,
+                ),
+              ),
             ),
-          )
-        ],
+            const SizedBox(height: 8,),
+            Expanded(
+              child: Text(
+                descItem,
+                textAlign: TextAlign.center,
+                style: const TextStyle(
+                  fontWeight: FontWeight.bold
+                ),
+              ),
+            )
+          ],
+        ),
       ), 
     );
   }

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio_app/models/user.dart';
 import 'package:portfolio_app/providers/portfolio_provider.dart';
-import 'package:portfolio_app/utils/utils.dart';
 import 'package:provider/provider.dart';
 
 import 'skill_card.dart';
