@@ -19,6 +19,7 @@ class ExperienceCard extends StatelessWidget {
         color: const Color(0xFFD0EDF2),
         clipBehavior: Clip.antiAlias,
         child: Container(
+          //height: 116,
           decoration: const BoxDecoration(
             border: Border(
               bottom: BorderSide(
@@ -30,19 +31,31 @@ class ExperienceCard extends StatelessWidget {
           child: Theme(
             data: Theme.of(context).copyWith(dividerColor: Colors.transparent),
             child: ExpansionTile(
-              tilePadding: const EdgeInsets.symmetric(vertical: 10, horizontal: 16),
+              controlAffinity: null,
+              tilePadding: const EdgeInsets.symmetric(vertical: 16, horizontal: 16, ),
               childrenPadding: const EdgeInsets.all(16),
               expandedCrossAxisAlignment: CrossAxisAlignment.start,
-              title: Text(
-                experience.jobTitle,
-                style: const TextStyle(
-                  fontWeight: FontWeight.bold
-                ),
-              ),
-              subtitle: Column(
+              title: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.start,
                 children: [
+                  Row(
+                    children: [
+                      const Icon(
+                        Icons.work,
+                        size: 14,
+                      ),
+                      const SizedBox(width: 8),
+                      Text(
+                        experience.jobTitle.toUpperCase(),
+                        style: const TextStyle(
+                          height: 1,
+                          fontSize: 14,
+                          fontWeight: FontWeight.bold
+                        ),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 8),
                   Row(
                     children: [
                       Expanded(
@@ -53,8 +66,14 @@ class ExperienceCard extends StatelessWidget {
                               size: 14,
                               //color: Colors.black,
                             ),
-                            const SizedBox(width: 4,),
-                            Text(experience.company),
+                            const SizedBox(width: 8),
+                            Text(
+                              experience.company,
+                              style: const TextStyle(
+                                height: 1,
+                                fontSize: 14
+                              ),
+                            ),
                           ],
                         )
                       ),
@@ -75,6 +94,7 @@ class ExperienceCard extends StatelessWidget {
                       ),
                     ],
                   ),
+                  const SizedBox(height: 8),
                   Row(
                     children: [
                       const Icon(
@@ -82,18 +102,18 @@ class ExperienceCard extends StatelessWidget {
                         size: 14,
                         //color: Colors.black,
                       ),
-                      const SizedBox(width: 4,),
+                      const SizedBox(width: 8),
                       Text(
                         '${experience.beginning} - ${experience.finished}',
                         style: const TextStyle(
-                          //fontSize: 10,
+                          height: 1,
+                          fontSize: 14,
                         ),
                       ),
                     ],
                   ),
-                  const SizedBox(height: 4,)
                 ],
-              ), 
+              ),
               children: [
                 Text(
                   experience.desc,
