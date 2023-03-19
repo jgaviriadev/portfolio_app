@@ -88,7 +88,7 @@ class HomeScreen extends StatelessWidget {
                       const SizedBox(width: 20,),
                       ElevatedButton(
                         onPressed: () {
-                          context.read<PortfolioAppProvider>().launchChat(context);
+                          context.read<PortfolioAppProvider>().launchChat(context, CustomUrl.whatsapp);
                         },
                         style: ElevatedButton.styleFrom(
                           backgroundColor: const Color(0xFF00C0E4),
