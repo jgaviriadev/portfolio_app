@@ -13,11 +13,12 @@ class StudyCard extends StatelessWidget {
       ),
       clipBehavior: Clip.antiAlias,
       child: Row(
+        mainAxisSize : MainAxisSize.max,
         children: [
           Expanded(
             child: Container(
               width: double.infinity,
-              height: 100,
+              height: 116,
               color: Theme.of(context).primaryColor,
               child: Padding(
                 padding: const EdgeInsets.all(16),
@@ -29,10 +30,12 @@ class StudyCard extends StatelessWidget {
                       children: const [
                         Icon(Icons.school, size: 14,),
                         SizedBox(width: 8),
-                        Text(
-                          'Ingeniero de sistemas',
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold
+                        Expanded(
+                          child: Text(
+                            'INGENIERO DE SISTEMAS',
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold
+                            ),
                           ),
                         ),
                       ],
@@ -63,7 +66,7 @@ class StudyCard extends StatelessWidget {
           ),
           Container(
             width: 30,
-            height: 100,
+            height: 116,
             color: const Color(0xFF00C0E4),
             child: const Center(
               child: RotatedBox(
