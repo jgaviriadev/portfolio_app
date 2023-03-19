@@ -43,6 +43,7 @@ class ExperienceCard extends StatelessWidget {
                       const Icon(
                         Icons.work,
                         size: 14,
+                        color: Colors.black,
                       ),
                       const SizedBox(width: 8),
                       Text(
@@ -64,7 +65,7 @@ class ExperienceCard extends StatelessWidget {
                             const Icon(
                               Icons.business,
                               size: 14,
-                              //color: Colors.black,
+                              color: Colors.black,
                             ),
                             const SizedBox(width: 8),
                             Text(
@@ -82,6 +83,7 @@ class ExperienceCard extends StatelessWidget {
                           Icon(
                             Icons.location_pin,
                             size: 14,
+                            color: Colors.black,
                           ),
                           SizedBox(width: 4,),
                           Text(
@@ -100,7 +102,7 @@ class ExperienceCard extends StatelessWidget {
                       const Icon(
                         Icons.calendar_month,
                         size: 14,
-                        //color: Colors.black,
+                        color: Colors.black,
                       ),
                       const SizedBox(width: 8),
                       Text(
