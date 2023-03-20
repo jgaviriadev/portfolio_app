@@ -1,6 +1,8 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:card_swiper/card_swiper.dart';
 import 'package:portfolio_app/models/user.dart';
+import 'package:skeletons/skeletons.dart';
 
 class ProjectCard extends StatelessWidget {
   const ProjectCard({
@@ -31,27 +33,46 @@ class ProjectCard extends StatelessWidget {
           child: Theme(
             data: Theme.of(context).copyWith(dividerColor: Colors.transparent),
             child: ExpansionTile(
-              //childrenPadding: const EdgeInsets.all(18),
+              tilePadding: const EdgeInsets.symmetric(vertical: 2, horizontal: 16, ),
               expandedCrossAxisAlignment: CrossAxisAlignment.start,
-              leading: const SizedBox(
-                height: double.infinity,
-                child: Icon(
-                  Icons.phone_android, 
-                  size: 20, 
-                  color: Colors.black,
-                ),
+              title: Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const Icon(
+                    Icons.code_outlined,
+                    size: 14,
+                    color: Colors.black,
+                  ),
+                  const SizedBox(width: 8),
+                  Expanded(
+                    child: Text(
+                      'Operaciones con conjuntos'.toUpperCase(),
+                      style: const TextStyle(
+                        height: 1,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 14,
+                      ),
+                    ),
+                  ),
+                ],
               ),
-              title: const Text(
-                'Operaciones con conjuntos',
-                style: TextStyle(
-                  height: 1,
-                  fontWeight: FontWeight.bold
+              subtitle: Padding(
+                padding: const EdgeInsets.only(top:8.0),
+                child: Row(
+                  children: [
+                    Icon(
+                      Icons.phone_android,
+                      color: Colors.black,
+                      size: 14,
+                    ),
+                    const SizedBox(width: 8),
+                    const Text('Aplicativo  móvil'),
+                  ],
                 ),
-              ),
-              subtitle: const Text('Aplicativo  móvil'), 
+              ), 
               children:  [
                 const Padding(
-                  padding: EdgeInsets.only(left: 18, right: 18),
+                  padding: EdgeInsets.only(left: 18, right: 18, top: 18),
                   child: Text(
                     'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout',
                     textAlign: TextAlign.justify,
@@ -74,9 +95,10 @@ class ProjectCard extends StatelessWidget {
                     itemBuilder: (_, int index) {
                       return ClipRRect(
                         borderRadius: BorderRadius.circular(20),
-                        child: FadeInImage(
-                          placeholder: const AssetImage('assets/noImage.png'), 
-                          image: NetworkImage('https://picsum.photos/400/300'), 
+                        child:CachedNetworkImage(
+                          imageUrl: "https://picsum.photos/410/310",
+                          placeholder: (_, __) => const SkeletonAvatar(),
+                          errorWidget: (context, url, error) => const Icon(Icons.error),
                           fit: BoxFit.cover,
                         ),
                       );
@@ -84,10 +106,6 @@ class ProjectCard extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 16,),
-                // const Padding(
-                //   padding: EdgeInsets.only(left: 18, right: 18),
-                //   child: Text('Tecnologias usadas: Flutter, Dart'),
-                // )
               ],
             ),
           ),
