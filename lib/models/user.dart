@@ -8,7 +8,8 @@ class User {
     this.age,
     this.img,
     this.experience,
-    this.skill
+    this.skill,
+    this.studies
   });
 
   String? name;
@@ -18,6 +19,7 @@ class User {
   String? img;
   List<Experience>? experience;
   List<Skill>? skill;
+  List<Studies>? studies;
 
   factory User.fromJson(String str) => User.fromMap(json.decode(str));
 
@@ -29,6 +31,7 @@ class User {
     img: json["img"],
     experience: List<Experience>.from(json["experience"].map((x) => Experience.fromJson(x))),
     skill: List<Skill>.from(json["skill"].map((x) => Skill.fromJson(x))),
+    studies: List<Studies>.from(json["studies"].map((x) => Studies.fromJson(x))),
   );
 }
 
@@ -88,6 +91,33 @@ class Skill {
     "name": name,
     "img": img,
   };
+}
 
+class Studies {
 
+  Studies({
+    required this.name,
+    required this.university,
+    required this.date,
+    required this.level
+  });
+
+  String name;
+  String university;
+  String date;
+  String level;
+
+  factory Studies.fromJson(Map<String, dynamic> json) => Studies(
+    name: json["name"],
+    university: json["university"],
+    date: json["date"],
+    level: json["level"]
+  );
+  
+  Map<String, dynamic> toJson() => {
+    "name": name,
+    "university": university,
+    "date" : date,
+    "level" : level
+  };
 }
