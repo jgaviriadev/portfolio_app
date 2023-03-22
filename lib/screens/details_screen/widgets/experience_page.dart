@@ -18,21 +18,14 @@ class ExperiencePage extends StatelessWidget {
       child: Selector<PortfolioAppProvider, User?>(
         selector: (_, v) => v.user,
         builder: (BuildContext context, User? user, _) {
-          if(user!=null){
-            return ListView.builder(
-              itemCount: user.experiences!.length,
-              itemBuilder: (context, index) {
-                return ExperienceCard(
-                  experience: user.experiences![index],
-                );
-              },
-            );
-          } else {
-            return const Center(
-              child: CircularProgressIndicator(),
-            );
-          }
-
+          return user!= null ? ListView.builder(
+            itemCount: user.experiences!.length,
+            itemBuilder: (context, index) {
+              return ExperienceCard(
+                experience: user.experiences![index],
+              );
+            },
+          ) : Container();
         }
       ),
     );

@@ -79,16 +79,16 @@ class ExperienceCard extends StatelessWidget {
                         )
                       ),
                       Row(
-                        children: const [
-                          Icon(
+                        children: [
+                          const Icon(
                             Icons.location_pin,
                             size: 14,
                             color: Colors.black,
                           ),
-                          SizedBox(width: 4,),
+                          const SizedBox(width: 4,),
                           Text(
-                            'REMOTO',
-                            style: TextStyle(
+                            experience.location,
+                            style: const TextStyle(
                               fontSize: 10,
                             ),
                           ),
@@ -122,7 +122,7 @@ class ExperienceCard extends StatelessWidget {
                   textAlign: TextAlign.justify,
                 ),
                 const SizedBox(height: 8,),
-                const Text('Tecnologias usadas: Flutter, Dart')
+                Text(experience.technologies)
               ],
             ),
           ),

@@ -47,6 +47,7 @@ class Experience {
     required this.finished,
     required this.jobTitle,
     required this.desc,
+    required this.technologies,
   });
 
   String company;
@@ -55,6 +56,7 @@ class Experience {
   String finished;
   String jobTitle;
   String desc;
+  String technologies;
 
   factory Experience.fromJson(Map<String, dynamic> json) => Experience(
     company: json["company"],
@@ -63,6 +65,7 @@ class Experience {
     finished: json["finished"],
     jobTitle: json["job_title"],
     desc: json["desc"],
+    technologies: json["technologies"],
   );
 
   Map<String, dynamic> toJson() => {
@@ -72,6 +75,7 @@ class Experience {
     "finished": finished,
     "job_title": jobTitle,
     "desc": desc,
+    "technologies": technologies
   };
 }
 
