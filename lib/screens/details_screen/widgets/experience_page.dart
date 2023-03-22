@@ -20,10 +20,10 @@ class ExperiencePage extends StatelessWidget {
         builder: (BuildContext context, User? user, _) {
           if(user!=null){
             return ListView.builder(
-              itemCount: user.experience!.length,
+              itemCount: user.experiences!.length,
               itemBuilder: (context, index) {
                 return ExperienceCard(
-                  experience: user.experience![index],
+                  experience: user.experiences![index],
                 );
               },
             );
