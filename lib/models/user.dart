@@ -121,3 +121,51 @@ class Studies {
     "level" : level
   };
 }
+
+class Project {
+  Project({
+    required this.name,
+    required this.platform,
+    required this.desc,
+    required this.technologies,
+    required this.img,
+  });
+
+  String name;
+  String platform;
+  String desc;
+  String technologies;
+  List<Img> img;
+
+  factory Project.fromJson(Map<String, dynamic> json) => Project(
+    name: json["name"],
+    platform: json["platform"],
+    desc: json["desc"],
+    technologies: json["technologies"],
+    img: List<Img>.from(json["img"].map((x) => Img.fromJson(x))),
+  );
+
+  Map<String, dynamic> toJson() => {
+    "name": name,
+    "platform": platform,
+    "desc": desc,
+    "technologies": technologies,
+    "img": List<dynamic>.from(img.map((x) => x.toJson())),
+  };
+}
+
+class Img {
+  Img({
+    required this.url,
+  });
+
+  String url;
+
+  factory Img.fromJson(Map<String, dynamic> json) => Img(
+    url: json["url"],
+  );
+
+  Map<String, dynamic> toJson() => {
+    "url": url,
+  };
+}
