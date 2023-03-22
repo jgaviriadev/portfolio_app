@@ -87,7 +87,7 @@ class AboutPage extends StatelessWidget {
                   spacing: 20,
                   runSpacing: 10,
                   alignment: WrapAlignment.center,
-                  children: user.skill!.map((e) => 
+                  children: user.skills!.map((e) => 
                     SkillCard(
                       name: e.name,
                       url: e.img,

@@ -7,9 +7,10 @@ class User {
     this.jobTitle,
     this.age,
     this.img,
-    this.experience,
-    this.skill,
-    this.studies
+    this.experiences,
+    this.skills,
+    this.studies,
+    this.projects
   });
 
   String? name;
@@ -17,9 +18,10 @@ class User {
   String? jobTitle;
   int? age;
   String? img;
-  List<Experience>? experience;
-  List<Skill>? skill;
-  List<Studies>? studies;
+  List<Experience>? experiences;
+  List<Skill>? skills;
+  List<Study>? studies;
+  List<Project>? projects;
 
   factory User.fromJson(String str) => User.fromMap(json.decode(str));
 
@@ -29,9 +31,10 @@ class User {
     jobTitle: json["jobTitle"],
     age: json["age"],
     img: json["img"],
-    experience: List<Experience>.from(json["experience"].map((x) => Experience.fromJson(x))),
-    skill: List<Skill>.from(json["skill"].map((x) => Skill.fromJson(x))),
-    studies: List<Studies>.from(json["studies"].map((x) => Studies.fromJson(x))),
+    experiences: List<Experience>.from(json["experiences"].map((x) => Experience.fromJson(x))),
+    skills: List<Skill>.from(json["skills"].map((x) => Skill.fromJson(x))),
+    studies: List<Study>.from(json["studies"].map((x) => Study.fromJson(x))),
+    projects: List<Project>.from(json["project"].map((x) => Project.fromJson(x))),
   );
 }
 
@@ -39,7 +42,7 @@ class Experience {
 
   Experience({
     required this.company,
-    required this.country,
+    required this.location,
     required this.beginning,
     required this.finished,
     required this.jobTitle,
@@ -47,7 +50,7 @@ class Experience {
   });
 
   String company;
-  String country;
+  String location;
   String beginning;
   String finished;
   String jobTitle;
@@ -55,7 +58,7 @@ class Experience {
 
   factory Experience.fromJson(Map<String, dynamic> json) => Experience(
     company: json["company"],
-    country: json["country"],
+    location: json["location"],
     beginning: json["beginning"],
     finished: json["finished"],
     jobTitle: json["job_title"],
@@ -64,7 +67,7 @@ class Experience {
 
   Map<String, dynamic> toJson() => {
     "company": company,
-    "country": country,
+    "location": location,
     "beginning": beginning,
     "finished": finished,
     "job_title": jobTitle,
@@ -93,9 +96,9 @@ class Skill {
   };
 }
 
-class Studies {
+class Study {
 
-  Studies({
+  Study({
     required this.name,
     required this.university,
     required this.date,
@@ -107,7 +110,7 @@ class Studies {
   String date;
   String level;
 
-  factory Studies.fromJson(Map<String, dynamic> json) => Studies(
+  factory Study.fromJson(Map<String, dynamic> json) => Study(
     name: json["name"],
     university: json["university"],
     date: json["date"],

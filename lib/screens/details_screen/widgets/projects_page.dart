@@ -16,9 +16,9 @@ class ProjectsPage extends StatelessWidget {
         builder: (context, User? user, _) {
           if(user!= null){
             return  ListView.builder(
-              itemCount: user.experience!.length,
+              itemCount: user.experiences!.length,
               itemBuilder: (context, index) {
-                return ProjectCard(experience: user.experience![index]);
+                return ProjectCard(experience: user.experiences![index]);
               },
             );
           } else {
