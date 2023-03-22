@@ -34,7 +34,7 @@ class User {
     experiences: List<Experience>.from(json["experiences"].map((x) => Experience.fromJson(x))),
     skills: List<Skill>.from(json["skills"].map((x) => Skill.fromJson(x))),
     studies: List<Study>.from(json["studies"].map((x) => Study.fromJson(x))),
-    projects: List<Project>.from(json["project"].map((x) => Project.fromJson(x))),
+    projects: List<Project>.from(json["projects"].map((x) => Project.fromJson(x))),
   );
 }
 
@@ -102,19 +102,22 @@ class Study {
     required this.name,
     required this.university,
     required this.date,
-    required this.level
+    required this.level,
+    required this.location
   });
 
   String name;
   String university;
   String date;
   String level;
+  String location;
 
   factory Study.fromJson(Map<String, dynamic> json) => Study(
     name: json["name"],
     university: json["university"],
     date: json["date"],
-    level: json["level"]
+    level: json["level"],
+    location: json["location"]
   );
   
   Map<String, dynamic> toJson() => {
