@@ -7,10 +7,10 @@ import 'package:skeletons/skeletons.dart';
 class ProjectCard extends StatelessWidget {
   const ProjectCard({
     Key? key, 
-    required this.experience,
+    required this.project,
   }) : super(key: key);
 
-  final Experience experience;
+  final Project project;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -46,7 +46,7 @@ class ProjectCard extends StatelessWidget {
                   const SizedBox(width: 8),
                   Expanded(
                     child: Text(
-                      'Operaciones con conjuntos'.toUpperCase(),
+                      project.name.toUpperCase(),
                       style: const TextStyle(
                         height: 1,
                         fontWeight: FontWeight.bold,
@@ -61,27 +61,27 @@ class ProjectCard extends StatelessWidget {
                 child: Row(
                   children: [
                     Icon(
-                      Icons.phone_android,
+                      project.platform == 'Móvil' ? Icons.phone_android : Icons.web,
                       color: Colors.black,
                       size: 14,
                     ),
                     const SizedBox(width: 8),
-                    const Text('Aplicativo  móvil'),
+                    Text(project.platform),
                   ],
                 ),
               ), 
               children:  [
-                const Padding(
-                  padding: EdgeInsets.only(left: 18, right: 18, top: 18),
+                Padding(
+                  padding: const EdgeInsets.only(left: 18, right: 18, top: 18),
                   child: Text(
-                    'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout',
+                    project.desc,
                     textAlign: TextAlign.justify,
                   ),
                 ),
                 const SizedBox(height: 8,),
-                const Padding(
-                  padding: EdgeInsets.only(left: 18, right: 18),
-                  child: Text('Tecnologias usadas: Flutter, Dart'),
+                Padding(
+                  padding: const EdgeInsets.only(left: 18, right: 18),
+                  child: Text('Tecnologias usadas: ${project.technologies}'),
                 ),
                 const SizedBox(height: 16,),
                 SizedBox(
@@ -96,7 +96,7 @@ class ProjectCard extends StatelessWidget {
                       return ClipRRect(
                         borderRadius: BorderRadius.circular(20),
                         child:CachedNetworkImage(
-                          imageUrl: "https://picsum.photos/410/310",
+                          imageUrl: project.img[index].url,
                           placeholder: (_, __) => const SkeletonAvatar(),
                           errorWidget: (context, url, error) => const Icon(Icons.error),
                           fit: BoxFit.cover,
