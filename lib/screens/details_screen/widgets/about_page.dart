@@ -79,24 +79,29 @@ class AboutPage extends StatelessWidget {
           ),
           const SizedBox(height: 10,),
           Expanded(
-            child: Selector<PortfolioAppProvider, User?>(
-              selector: (p0, p1) => p1.user,
-              builder: (BuildContext context, User? user, _) {
-                if(user!=null){
-                return Wrap(
-                  spacing: 20,
-                  runSpacing: 10,
-                  alignment: WrapAlignment.center,
-                  children: user.skills!.map((e) => 
-                    SkillCard(
-                      name: e.name,
-                      url: e.img,
-                    )).toList(),
-                );
-                } else {
-                  return Container();
-                }
-              }, 
+            child: SizedBox(
+            width: double.infinity,
+              child: SingleChildScrollView(
+                child: Selector<PortfolioAppProvider, User?>(
+                  selector: (p0, p1) => p1.user,
+                  builder: (BuildContext context, User? user, _) {
+                    if(user!=null){
+                    return Wrap(
+                      spacing: 20,
+                      runSpacing: 10,
+                      alignment: WrapAlignment.center,
+                      children: user.skills!.map((e) => 
+                        SkillCard(
+                          name: e.name,
+                          url: e.img,
+                        )).toList(),
+                    );
+                    } else {
+                      return Container();
+                    }
+                  }, 
+                ),
+              ),
             ),
           ),
           
