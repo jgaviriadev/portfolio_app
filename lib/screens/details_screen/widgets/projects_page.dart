@@ -4,11 +4,18 @@ import 'package:provider/provider.dart';
 import '../../../models/user.dart';
 import 'project_card.dart';
 
-class ProjectsPage extends StatelessWidget {
+class ProjectsPage extends StatefulWidget {
   const ProjectsPage({super.key});
 
   @override
+  State<ProjectsPage> createState() => _ProjectsPageState();
+}
+
+class _ProjectsPageState extends State<ProjectsPage> with AutomaticKeepAliveClientMixin{
+  @override
   Widget build(BuildContext context) {
+    super.build(context);
+    
     return Padding(
       padding: const EdgeInsets.only(left:20.0, right: 20, top: 20),
       child: Selector<PortfolioAppProvider, User?>(
@@ -28,5 +35,8 @@ class ProjectsPage extends StatelessWidget {
       ),
     );
   }
+  
+  @override
+  bool get wantKeepAlive => true;
 }
 

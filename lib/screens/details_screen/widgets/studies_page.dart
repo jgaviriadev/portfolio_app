@@ -6,11 +6,18 @@ import '../../../models/user.dart';
 import '../../../providers/portfolio_provider.dart';
 import 'study_card.dart';
 
-class StudiesPage extends StatelessWidget {
+class StudiesPage extends StatefulWidget {
   const StudiesPage({super.key});
 
   @override
+  State<StudiesPage> createState() => _StudiesPageState();
+}
+
+class _StudiesPageState extends State<StudiesPage> with AutomaticKeepAliveClientMixin{
+  @override
   Widget build(BuildContext context) {
+    super.build(context);
+
     return Selector<PortfolioAppProvider, User?>(
       selector: (_, v) => v.user,
       builder: (BuildContext context, User? user, _) {
@@ -42,4 +49,7 @@ class StudiesPage extends StatelessWidget {
       }
     );
   }
+  
+  @override
+  bool get wantKeepAlive => true;
 }

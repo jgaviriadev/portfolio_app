@@ -6,13 +6,20 @@ import 'package:provider/provider.dart';
 import '../../../models/user.dart';
 
 
-class ExperiencePage extends StatelessWidget {
+class ExperiencePage extends StatefulWidget {
   const ExperiencePage({
     Key? key,
   }) : super(key: key);
 
   @override
+  State<ExperiencePage> createState() => _ExperiencePageState();
+}
+
+class _ExperiencePageState extends State<ExperiencePage> with AutomaticKeepAliveClientMixin{
+  @override
   Widget build(BuildContext context) {
+    super.build(context);
+
     return Padding(
       padding: const EdgeInsets.only(left: 20, right: 20),
       child: Selector<PortfolioAppProvider, User?>(
@@ -30,5 +37,8 @@ class ExperiencePage extends StatelessWidget {
       ),
     );
   }
+  
+  @override
+  bool get wantKeepAlive => true;
 }
 
