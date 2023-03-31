@@ -46,6 +46,7 @@ dependencies:
   card_swiper: ^2.0.4
   timelines: ^0.1.0
   skeletons: ^0.0.3
+  flutter_zoom_drawer: ^3.0.4+1
 
 dev_dependencies:
   flutter_test:

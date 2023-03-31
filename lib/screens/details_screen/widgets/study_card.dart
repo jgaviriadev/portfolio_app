@@ -70,6 +70,7 @@ class StudyCard extends StatelessWidget {
                                   maxLines: 2,
                                   textAlign: TextAlign.justify,
                                   style: const TextStyle(
+                                    height: 1,
                                     fontWeight: FontWeight.bold,
                                   ),
                                 ),
