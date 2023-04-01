@@ -21,9 +21,11 @@ class PortfolioAppProvider extends ChangeNotifier{
   PageController _pageController = PageController(initialPage: 0);
   final String _url = 'https://raw.githubusercontent.com/jgaviriadev/jgaviriadev/main/data.json';
   User? user ;
+  String _currentScreen = '';
 
   TabSelected get tabSelected => _tabSelected;
   PageController get pageController => _pageController;
+  String get currentScreen => _currentScreen;
 
   
   void changeTabSelected (TabSelected value){
@@ -64,6 +66,10 @@ class PortfolioAppProvider extends ChangeNotifier{
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(content: Text(data.errorText)));
     }
+  }
+
+  void updateLocation(String newLocation) {
+    _currentScreen = newLocation;
   }
 
 }

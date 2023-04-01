@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 import '../main.dart';
 
-class CustomAppBar extends AppBar {
-  CustomAppBar({super.key}): super(
+AppBar customAppBar(BuildContext context) {
+  return AppBar(
     leading: IconButton(
       icon: const Icon(Icons.density_medium_rounded),
       color: Colors.black,
