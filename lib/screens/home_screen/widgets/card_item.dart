@@ -14,7 +14,7 @@ class CardITem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: 120,
-      width: 100,
+      width: 104,
       decoration: BoxDecoration(
         color: Theme.of(context).primaryColor,
         borderRadius: const BorderRadius.all(
