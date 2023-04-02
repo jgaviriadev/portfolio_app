@@ -1,35 +1,15 @@
-
-
 import 'package:flutter/material.dart';
 import 'package:flutter_zoom_drawer/config.dart';
 import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
-import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:portfolio_app/providers/portfolio_provider.dart';
+import 'package:portfolio_app/routes/app_routes.dart';
 import 'package:provider/provider.dart';
-import 'screens/screens.dart';
 import 'widgets/menu_screen.dart';
 
 void main() {
   runApp(const MyApp());
 }
-
-final GoRouter _route = GoRouter(
-  routes: [
-    GoRoute(
-      path: '/',
-      builder: (context, state) => const SplashScreen(),
-    ),
-    GoRoute(
-      path: '/home',
-      builder: (context, state) => const HomeScreen(),
-    ),
-    GoRoute(
-      path: '/details',
-      builder: (context, state) => const DetailsScreen(),
-    )
-  ],   
-);
 
 final ZoomDrawerController zoomDrawerController = ZoomDrawerController();
 
@@ -45,7 +25,7 @@ class MyApp extends StatelessWidget {
       child: MaterialApp.router(
         debugShowCheckedModeBanner: false,
         title: 'App',
-        routerConfig: _route,
+        routerConfig: MyRouter.router,
         theme: ThemeData(
           primaryColor: const Color(0xFFD0EDF2),
           backgroundColor: Colors.amber,
@@ -66,7 +46,7 @@ class MyApp extends StatelessWidget {
               showShadow: true,
               menuBackgroundColor: const Color(0xFF00C0E4),
               controller: zoomDrawerController,
-              menuScreen: MenuScreen(router: _route),
+              menuScreen: MenuScreen(router: MyRouter.router),
               mainScreen: router!,
           );
         },

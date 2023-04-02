@@ -1,9 +1,6 @@
-import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:portfolio_app/models/user.dart';
-import 'package:portfolio_app/utils/utils.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 enum TabSelected { hola, estudios, exp, proyectos, }
 
@@ -23,13 +20,10 @@ class PortfolioAppProvider extends ChangeNotifier{
   PageController _pageController = PageController(initialPage: 0);
   final String _url = 'https://raw.githubusercontent.com/jgaviriadev/jgaviriadev/main/data.json';
   User? user ;
-  String _currentScreen = '';
 
   TabSelected get tabSelected => _tabSelected;
   PageController get pageController => _pageController;
-  String get currentScreen => _currentScreen;
 
-  
   void changeTabSelected (TabSelected value){
     _tabSelected = value;
     notifyListeners();
@@ -58,20 +52,4 @@ class PortfolioAppProvider extends ChangeNotifier{
     }
     notifyListeners();
   }
-
-  //open any url
-  Future<bool> launchChat(CustomUrl data) async {
-    final Uri url = Uri.parse(data.url);
-    if (await canLaunchUrl(url)) {
-      await launchUrl(url);
-      return true;
-    } else {
-      return false;
-    }
-  }
-
-  void updateLocation(String newLocation) {
-    _currentScreen = newLocation;
-  }
-
 }
