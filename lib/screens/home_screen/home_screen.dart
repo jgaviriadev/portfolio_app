@@ -1,3 +1,4 @@
+import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:portfolio_app/providers/portfolio_provider.dart';
@@ -11,10 +12,29 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     return  WillPopScope(
       onWillPop:() async {
-        
-        return false;
+          bool willPop = true;
+          await AwesomeDialog(
+          context: context,
+          animType: AnimType.scale,
+          dialogType: DialogType.warning,
+          body: const Center(
+            child: Text(
+              '¿Deseas cerrar la aplicación?',
+              style: TextStyle(fontStyle: FontStyle.italic),
+            ),
+          ),
+          btnOkText: 'Sí',
+          btnCancelText: 'No',
+          btnCancelOnPress: () {
+              willPop = false;
+          },
+          btnOkOnPress: () {willPop=true;}
+          ).show();
+
+          return willPop;
       },
       child: Scaffold(
         appBar: customAppBar(context),
