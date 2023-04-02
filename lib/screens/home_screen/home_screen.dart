@@ -2,6 +2,7 @@ import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:portfolio_app/providers/portfolio_provider.dart';
+import 'package:portfolio_app/utils/utils.dart';
 import 'package:portfolio_app/widgets/custom_app_bar.dart';
 import 'package:provider/provider.dart';
 
@@ -113,7 +114,7 @@ class HomeScreen extends StatelessWidget {
                         const SizedBox(width: 20,),
                         ElevatedButton(
                           onPressed: () {
-                            context.read<PortfolioAppProvider>().launchChat(context, CustomUrl.whatsapp);
+                            Utils.launchChat(CustomUrl.whatsapp, context);
                           },
                           style: ElevatedButton.styleFrom(
                             backgroundColor: const Color(0xFF00C0E4),

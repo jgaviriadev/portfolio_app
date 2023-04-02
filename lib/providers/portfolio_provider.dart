@@ -1,6 +1,8 @@
+import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:portfolio_app/models/user.dart';
+import 'package:portfolio_app/utils/utils.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 enum TabSelected { hola, estudios, exp, proyectos, }
@@ -58,13 +60,13 @@ class PortfolioAppProvider extends ChangeNotifier{
   }
 
   //open any url
-  Future<void> launchChat(BuildContext context, CustomUrl data) async {
+  Future<bool> launchChat(CustomUrl data) async {
     final Uri url = Uri.parse(data.url);
     if (await canLaunchUrl(url)) {
       await launchUrl(url);
+      return true;
     } else {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text(data.errorText)));
+      return false;
     }
   }
 

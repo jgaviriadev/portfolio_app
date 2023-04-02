@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio_app/models/user.dart';
 import 'package:portfolio_app/providers/portfolio_provider.dart';
+import 'package:portfolio_app/utils/utils.dart';
 import 'package:provider/provider.dart';
 
 import 'skill_card.dart';
@@ -45,9 +46,7 @@ class AboutPage extends StatelessWidget {
                             height: 25,
                             width: 25,
                           ),
-                          onTap: () => context
-                            .read<PortfolioAppProvider>()
-                            .launchChat(context, CustomUrl.github),
+                          onTap: () => Utils.launchChat(CustomUrl.github, context),
                         ),
                         const SizedBox(width: 8,),
                         GestureDetector(
@@ -56,9 +55,7 @@ class AboutPage extends StatelessWidget {
                             height: 25,
                             width: 25,
                           ),
-                          onTap: () => context
-                            .read<PortfolioAppProvider>()
-                            .launchChat(context, CustomUrl.linkedin),
+                          onTap: () => Utils.launchChat(CustomUrl.linkedin, context),
                         ),
                       ],
                     ),
