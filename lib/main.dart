@@ -43,6 +43,7 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (_) => PortfolioAppProvider(),)
       ],
       child: MaterialApp.router(
+        debugShowCheckedModeBanner: false,
         title: 'App',
         routerConfig: _route,
         theme: ThemeData(
