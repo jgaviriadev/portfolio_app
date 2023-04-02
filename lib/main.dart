@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_zoom_drawer/config.dart';
 import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:portfolio_app/providers/portfolio_provider.dart';
 import 'package:portfolio_app/routes/app_routes.dart';
 import 'package:provider/provider.dart';
+import 'themes/light_theme.dart';
 import 'widgets/menu_screen.dart';
 
 void main() {
@@ -26,15 +26,7 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         title: 'App',
         routerConfig: MyRouter.router,
-        theme: ThemeData(
-          primaryColor: const Color(0xFFD0EDF2),
-          backgroundColor: Colors.amber,
-          scaffoldBackgroundColor: const Color(0xFFD0EDF2),
-          textTheme: GoogleFonts.interTextTheme(
-            Theme.of(context).textTheme
-          ),
-          iconTheme: const IconThemeData(color: Colors.black)
-        ),
+        theme: LightTheme.themeData(context),
         builder: (context, router) {
           return ZoomDrawer(
             mainScreenScale: 0.2,

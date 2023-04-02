@@ -116,12 +116,6 @@ class HomeScreen extends StatelessWidget {
                           onPressed: () {
                             Utils.launchChat(CustomUrl.whatsapp, context);
                           },
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: const Color(0xFF00C0E4),
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(12), // <-- Radius
-                            ),
-                          ),
                           child: const Text('Contáctame'),
                         )
                       ],
