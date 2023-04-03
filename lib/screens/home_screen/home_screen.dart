@@ -57,14 +57,14 @@ class HomeScreen extends StatelessWidget {
               decoration: const BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(20.0),
-                  topRight: Radius.circular(20.0)
+                  topLeft: Radius.circular(40.0),
+                  topRight: Radius.circular(40.0)
                 )
               ),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  const SizedBox(height: 12,),
+                  const SizedBox(height: 20,),
                   Padding(
                     padding: const EdgeInsets.only(right: 20, left: 20, top: 4),
                     child: Row(
