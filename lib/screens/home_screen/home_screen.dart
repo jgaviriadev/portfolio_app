@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 import 'package:portfolio_app/providers/portfolio_provider.dart';
 import 'package:portfolio_app/utils/utils.dart';
 import 'package:portfolio_app/widgets/custom_app_bar.dart';
-import 'package:provider/provider.dart';
 
-import 'widgets/card_item.dart';
+import 'widgets/widgets.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -100,58 +98,7 @@ class HomeScreen extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(height: 20,),
-                  SingleChildScrollView(
-                    scrollDirection: Axis.horizontal,
-                    child: Row(
-                      children: [
-                        const SizedBox(width: 20,),
-                        GestureDetector(
-                          onTap: () {
-                            context.read<PortfolioAppProvider>().changePageAndTab(TabSelected.hola);
-                            context.push('/details');
-                          },
-                          child: const CardITem(
-                            descItem: 'Acerca de mí',
-                            iconItem: Icons.badge_rounded,
-                          ),
-                        ),
-                        const SizedBox(width: 20,),
-                        GestureDetector(
-                          onTap: () {
-                            context.read<PortfolioAppProvider>().changePageAndTab(TabSelected.exp);
-                            context.push('/details');
-                          },
-                          child: const CardITem(
-                            descItem: 'Experiencia',
-                            iconItem: Icons.work,
-                          ),
-                        ),
-                        const SizedBox(width: 20,),
-                        GestureDetector(
-                          onTap: () {
-                            context.read<PortfolioAppProvider>().changePageAndTab(TabSelected.proyectos);
-                            context.push('/details');
-                          },
-                          child: const CardITem(
-                            descItem: 'Proyectos',
-                            iconItem: Icons.code_rounded,
-                          ),
-                        ),
-                        const SizedBox(width: 20,),
-                        GestureDetector(
-                          onTap: () {
-                            context.read<PortfolioAppProvider>().changePageAndTab(TabSelected.estudios);
-                            context.push('/details');
-                          },
-                          child: const CardITem(
-                            descItem: 'Estudios',
-                            iconItem: Icons.school,
-                          ),
-                        ),
-                        const SizedBox(width: 20,),
-                      ],
-                    ),
-                  ),
+                  const CardSwiper(),
                   const SizedBox(height: 20,),
                 ],
               ),
@@ -162,3 +109,5 @@ class HomeScreen extends StatelessWidget {
     );
   }
 }
+
+
