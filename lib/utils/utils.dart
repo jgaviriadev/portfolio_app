@@ -28,4 +28,24 @@ class Utils {
       ).show();
     }
   }
+  
+  static Future<bool> dialogCloseApp(context) async {
+    bool willPop = true;
+    await AwesomeDialog(
+      context: context,
+      animType: AnimType.scale,
+      dialogType: DialogType.warning,
+      body: const Center(
+        child: Text(
+          '¿Deseas cerrar la aplicación?',
+          style: TextStyle(fontStyle: FontStyle.italic),
+        ),
+      ),
+      btnOkText: 'Sí',
+      btnCancelText: 'No',
+      btnCancelOnPress: () => willPop = false,
+      btnOkOnPress: () => willPop = true
+    ).show();
+    return willPop;
+  }
 }
