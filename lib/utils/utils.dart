@@ -48,4 +48,8 @@ class Utils {
     ).show();
     return willPop;
   }
+
+  //long texts
+  static const txtCommunicateWithMe = 'Si quieres comunicarte conmigo o estás interesado en iniciar un proyecto juntos, ponte en contacto.';
+  static const txtAboutMe = 'Hola, soy Jhonatan Gaviria. Ingeniero de sistemas, me especializo en crear sitios web y aplicaciones móviles elegantes y modernas. Constantemente aprendo nuevas tecnologias siendo autodidacta.';
 }

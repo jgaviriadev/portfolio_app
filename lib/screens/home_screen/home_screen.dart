@@ -81,7 +81,7 @@ class HomeScreen extends StatelessWidget {
                               ),
                               SizedBox(height: 8,),
                               Text(
-                                'Si quieres comunicarte conmigo o estás interesado en iniciar un proyecto juntos, ponte en contacto.',
+                                Utils.txtCommunicateWithMe,
                                 textAlign: TextAlign.justify,
                               ),
                             ],

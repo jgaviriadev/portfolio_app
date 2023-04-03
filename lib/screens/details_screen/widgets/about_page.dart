@@ -66,7 +66,7 @@ class AboutPage extends StatelessWidget {
           ),
           const SizedBox(height: 20,),
           const Text(
-            'Hola, soy Jhonatan Gaviria. Ingeniero de sistemas, me especializo en crear sitios web y aplicaciones móviles elegantes y modernas. Constantemente aprendo nuevas tecnologias siendo autodidacta.',
+            Utils.txtAboutMe,
             textAlign: TextAlign.justify,
           ),
           const SizedBox(height: 20,),
