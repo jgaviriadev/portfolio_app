@@ -1,13 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio_app/providers/portfolio_provider.dart';
-import 'package:portfolio_app/screens/details_screen/widgets/about_page.dart';
-import 'package:portfolio_app/screens/details_screen/widgets/projects_page.dart';
-import 'package:portfolio_app/screens/details_screen/widgets/studies_page.dart';
 import 'package:portfolio_app/widgets/widgets.dart';
 import 'package:provider/provider.dart';
-import 'widgets/experience_page.dart';
-import 'widgets/tab_widget.dart';
-
+import 'widgets/widgets.dart';
 
 class DetailsScreen extends StatelessWidget {
   const DetailsScreen({super.key});
@@ -35,34 +30,7 @@ class DetailsScreen extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 12),
-            Padding(
-              padding: const EdgeInsets.only(left: 20, right: 20),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: const [
-                  TabWidget(
-                    text: 'Hola',
-                    tab: TabSelected.hola ,
-                    icon: Icons.person,
-                  ),
-                  TabWidget(
-                    text: 'Estudios',
-                    tab: TabSelected.estudios,
-                    icon: Icons.school,
-                  ),
-                  TabWidget(
-                    text: 'Experiencia',
-                    tab: TabSelected.exp,
-                    icon: Icons.work,
-                  ),
-                  TabWidget(
-                    text: 'Proyectos',
-                    tab: TabSelected.proyectos,
-                    icon: Icons.code_rounded,
-                  ),
-                ],
-              ),
-            ),
+            const TabMenu(),
             const SizedBox(height: 12),
             Expanded(
               child: Container(
