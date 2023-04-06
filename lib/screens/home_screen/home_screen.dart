@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio_app/providers/portfolio_provider.dart';
-import 'package:portfolio_app/utils/utils.dart';
-import 'package:portfolio_app/widgets/custom_app_bar.dart';
 
+import '../../providers/portfolio_provider.dart';
+import '../../utils/utils.dart';
+import '../../widgets/widgets.dart';
 import 'widgets/widgets.dart';
 
 class HomeScreen extends StatelessWidget {

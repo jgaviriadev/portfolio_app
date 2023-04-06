@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import '../../../providers/portfolio_provider.dart';
 import 'widgets.dart';
 
-
 class TabMenu extends StatelessWidget {
   const TabMenu({
     Key? key,

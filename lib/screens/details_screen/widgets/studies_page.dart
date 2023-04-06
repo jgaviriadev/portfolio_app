@@ -4,7 +4,7 @@ import 'package:provider/provider.dart';
 
 import '../../../models/user.dart';
 import '../../../providers/portfolio_provider.dart';
-import 'study_card.dart';
+import 'widgets.dart';
 
 class StudiesPage extends StatefulWidget {
   const StudiesPage({super.key});

@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio_app/providers/portfolio_provider.dart';
-import 'package:portfolio_app/screens/details_screen/widgets/experience_card.dart';
 import 'package:provider/provider.dart';
 
 import '../../../models/user.dart';
-
+import '../../../providers/portfolio_provider.dart';
+import 'widgets.dart';
 
 class ExperiencePage extends StatefulWidget {
   const ExperiencePage({

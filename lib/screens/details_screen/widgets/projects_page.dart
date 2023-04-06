@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio_app/providers/portfolio_provider.dart';
 import 'package:provider/provider.dart';
+
 import '../../../models/user.dart';
-import 'project_card.dart';
+import '../../../providers/portfolio_provider.dart';
+import 'widgets.dart';
+
 
 class ProjectsPage extends StatefulWidget {
   const ProjectsPage({super.key});

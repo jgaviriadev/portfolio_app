@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio_app/models/user.dart';
+
+import '../../../models/models.dart';
 
 class ExperienceCard extends StatelessWidget {
   const ExperienceCard({

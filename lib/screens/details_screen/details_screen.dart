@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio_app/providers/portfolio_provider.dart';
-import 'package:portfolio_app/widgets/widgets.dart';
 import 'package:provider/provider.dart';
+
+import '../../providers/portfolio_provider.dart';
+import '../../widgets/widgets.dart';
 import 'widgets/widgets.dart';
 
 class DetailsScreen extends StatelessWidget {

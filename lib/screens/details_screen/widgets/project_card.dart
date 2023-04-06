@@ -1,8 +1,9 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:card_swiper/card_swiper.dart';
-import 'package:portfolio_app/models/user.dart';
 import 'package:skeletons/skeletons.dart';
+
+import '../../../models/models.dart';
 
 class ProjectCard extends StatelessWidget {
   const ProjectCard({

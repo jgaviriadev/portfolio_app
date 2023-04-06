@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../models/user.dart';
+import '../../../models/models.dart';
 
 class StudyCard extends StatelessWidget {
   const StudyCard({
